@@ -64,7 +64,7 @@ OrbitMenu detecta automáticamente qué programa tienes en primer plano y adapta
 
 1. **Clonar el repositorio:**
    ```powershell
-   git clone https://github.com/tu-usuario/OrbitMenu.git
+   git clone https://github.com/xJhony911/OrbitMenu.git
    cd OrbitMenu
    ```
 
