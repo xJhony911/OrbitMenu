@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitMenu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Contenedor Centrado al 100vw x 100vh de la ventana -->
+  <div id="radial-container" class="radial-container hidden">
+    
+    <!-- SVG Cuadrado de 420x420 centrado exactamente en (210, 210) -->
+    <svg id="radial-svg" class="radial-svg" viewBox="0 0 420 420" width="420" height="420">
+      <defs>
+        <!-- Resplandor Neón -->
+        <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <!-- Fondo Circular Glass -->
+        <radialGradient id="glass-backdrop" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(15, 23, 42, 0.90)" />
+          <stop offset="85%" stop-color="rgba(15, 23, 42, 0.78)" />
+          <stop offset="100%" stop-color="rgba(30, 41, 59, 0.55)" />
+        </radialGradient>
+      </defs>
+
+      <!-- Fondo y Borde Exterior -->
+      <circle cx="210" cy="210" r="195" class="radial-backdrop" />
+      <circle cx="210" cy="210" r="195" class="radial-border-ring" />
+
+      <!-- Segmentos del Menú Radial -->
+      <g id="slices-group" class="slices-group"></g>
+
+      <!-- Iconos de Segmentos -->
+      <g id="icons-group" class="icons-group"></g>
+
+      <!-- Línea Guía Magnética y Puntero -->
+      <g id="pointer-guide" class="pointer-guide">
+        <line id="pointer-line" x1="210" y1="210" x2="210" y2="210" class="pointer-line" />
+        <circle id="pointer-dot" cx="210" cy="210" r="4.5" class="pointer-dot" />
+      </g>
+
+      <!-- Zona Muerta Central (30px de radio) -->
+      <circle cx="210" cy="210" r="30" class="deadzone-circle" />
+      <circle cx="210" cy="210" r="30" class="deadzone-ring" />
+    </svg>
+
+    <!-- Hub Central (Diagnóstico visual de ejecutable activo) -->
+    <div id="center-hub" class="center-hub">
+      <div class="hub-content">
+        <!-- Vista Idle: Diagnóstico en tiempo real -->
+        <div id="hub-idle-state" class="hub-state active">
+          <div id="profile-badge" class="profile-badge">Global</div>
+          <div id="active-app-name" class="active-app-name">Escritorio</div>
+        </div>
+
+        <!-- Vista Activa: Acción Seleccionada -->
+        <div id="hub-active-state" class="hub-state">
+          <div id="action-label" class="action-label">Acción</div>
+          <div id="action-shortcut-pill" class="action-shortcut-pill">Atajo</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="radial.js"></script>
+</body>
+</html>

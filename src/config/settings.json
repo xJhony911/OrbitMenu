@@ -1,0 +1,11 @@
+{
+  "triggerMouseButton": "middle",
+  "triggerKeyCombo": "Alt+Space",
+  "holdThresholdMs": 180,
+  "requireAltModifier": false,
+  "autoStartWithWindows": false,
+  "radialSize": 560,
+  "deadzoneRadius": 32,
+  "soundFeedback": false,
+  "theme": "dark-glass"
+}

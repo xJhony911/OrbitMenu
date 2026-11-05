@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitMenu - Configuración</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="window-shell">
+    
+    <!-- Barra Lateral de Navegación -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">🌌</div>
+        <div class="brand-info">
+          <h2>OrbitMenu</h2>
+          <span class="version-tag">v0.1.0-beta</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button id="nav-btn-trigger" class="nav-item active" data-tab="tab-trigger">
+          <span class="nav-icon">🎯</span>
+          <span>Disparador y Control</span>
+        </button>
+        <button id="nav-btn-profiles" class="nav-item" data-tab="tab-profiles">
+          <span class="nav-icon">🗂️</span>
+          <span>Editor de Perfiles</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="btn-quick-test" class="btn-secondary btn-block">
+          ⚡ Probar Menú Radial
+        </button>
+      </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+      
+      <!-- Pestaña 1: Disparador y Comportamiento -->
+      <section id="tab-trigger" class="tab-panel active">
+        <div class="panel-header">
+          <h1>Disparador y Comportamiento</h1>
+          <p>Personaliza cómo y cuándo se activa el menú radial en tu escritorio.</p>
+        </div>
+
+        <div class="settings-card">
+          <h3>Botón Principal del Mouse</h3>
+          <p class="card-desc">Selecciona qué botón del mouse abrirá el menú al mantenerlo presionado.</p>
+
+          <div class="button-selector-grid">
+            <label class="btn-card">
+              <input type="radio" name="triggerButton" value="middle" checked>
+              <div class="card-body">
+                <span class="card-icon">🖱️</span>
+                <span class="card-title">Clic de Rueda / Central</span>
+                <span class="card-badge">Recomendado</span>
+              </div>
+            </label>
+
+            <label class="btn-card">
+              <input type="radio" name="triggerButton" value="back">
+              <div class="card-body">
+                <span class="card-icon">◀️</span>
+                <span class="card-title">Botón Lateral Atrás</span>
+                <span class="card-sub">XButton1 (Mouse 4)</span>
+              </div>
+            </label>
+
+            <label class="btn-card">
+              <input type="radio" name="triggerButton" value="forward">
+              <div class="card-body">
+                <span class="card-icon">▶️</span>
+                <span class="card-title">Botón Lateral Adelante</span>
+                <span class="card-sub">XButton2 (Mouse 5)</span>
+              </div>
+            </label>
+
+            <label class="btn-card">
+              <input type="radio" name="triggerButton" value="right_hold">
+              <div class="card-body">
+                <span class="card-icon">🔘</span>
+                <span class="card-title">Clic Derecho Mantenido</span>
+                <span class="card-sub">Presión > 180ms</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="toggle-row mt-4">
+            <div class="toggle-info">
+              <span class="toggle-title">Exigir tecla Alt presionada</span>
+              <span class="toggle-desc">Requiere Alt + Clic para abrir el menú (evita el auto-scroll de la rueda en navegadores).</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="chk-require-alt">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Sensibilidad y Dimensiones</h3>
+
+          <div class="range-group">
+            <div class="range-header">
+              <label for="range-threshold">Tiempo de presión mantenida</label>
+              <span id="label-threshold" class="range-val">180 ms</span>
+            </div>
+            <input type="range" id="range-threshold" min="100" max="400" step="10" value="180">
+            <div class="range-ticks">
+              <span>100 ms (Rápido)</span>
+              <span>180 ms (Ideal)</span>
+              <span>400 ms (Seguro)</span>
+            </div>
+          </div>
+
+          <div class="range-group mt-4">
+            <div class="range-header">
+              <label for="range-size">Diámetro del Menú Radial</label>
+              <span id="label-size" class="range-val">560 px</span>
+            </div>
+            <input type="range" id="range-size" min="440" max="640" step="20" value="560">
+            <div class="range-ticks">
+              <span>440 px (Compacto)</span>
+              <span>560 px (Estándar)</span>
+              <span>640 px (Amplio)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Atajo Alternativo de Teclado y Sistema</h3>
+
+          <div class="input-row">
+            <div class="input-info">
+              <span class="input-title">Atajo de teclado global</span>
+              <span class="input-desc">Para usar OrbitMenu en laptops o sin ratón lateral.</span>
+            </div>
+            <input type="text" id="txt-key-combo" class="input-field" value="Alt+Space" placeholder="Ej: Alt+Space o Ctrl+Space">
+          </div>
+
+          <div class="toggle-row mt-4">
+            <div class="toggle-info">
+              <span class="toggle-title">Iniciar automáticamente con Windows</span>
+              <span class="toggle-desc">Ejecuta OrbitMenu en segundo plano al encender el equipo.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="chk-autostart">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="action-footer">
+          <span id="save-status" class="status-msg"></span>
+          <button id="btn-save-trigger" class="btn-primary">Guardar Ajustes</button>
+        </div>
+      </section>
+
+      <!-- Pestaña 2: Editor de Perfiles -->
+      <section id="tab-profiles" class="tab-panel">
+        <div class="panel-header">
+          <h1>Editor de Perfiles Contextuales</h1>
+          <p>Configura los ejecutables y acciones asignadas a cada una de las 10 categorías universales.</p>
+        </div>
+
+        <div class="profiles-manager">
+          <!-- Selector de Categoría -->
+          <div class="profile-tabs-scroll" id="profile-tabs-container"></div>
+
+          <!-- Editor del Perfil Seleccionado -->
+          <div class="profile-editor-card">
+            <div class="profile-meta-grid">
+              <div class="field-col">
+                <label>Nombre del Perfil</label>
+                <input type="text" id="profile-name-input" class="input-field">
+              </div>
+              <div class="field-col">
+                <label>Badge en Menú</label>
+                <input type="text" id="profile-badge-input" class="input-field">
+              </div>
+              <div class="field-col">
+                <label>Color de Acento</label>
+                <div class="color-picker-wrap">
+                  <input type="color" id="profile-color-input" class="color-picker">
+                  <span id="profile-color-code">#38bdf8</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gestión de Ejecutables .EXE -->
+            <div class="executables-section mt-4">
+              <label>Programas Asociados (.exe)</label>
+              <p class="sub-label">OrbitMenu cambiará automáticamente a este perfil cuando la ventana activa sea uno de estos ejecutables:</p>
+              
+              <div class="tags-container" id="executables-tags"></div>
+
+              <div class="add-exe-row">
+                <input type="text" id="new-exe-input" class="input-field" placeholder="ejemplo: blender.exe o obsidian.exe">
+                <button id="btn-add-exe" class="btn-secondary">+ Agregar Programa</button>
+              </div>
+            </div>
+
+            <!-- Segmentos del Menú Radial -->
+            <div class="slices-editor-section mt-4">
+              <label>Segmentos del Menú Radial (Acciones)</label>
+              <div class="slices-list" id="slices-list-container"></div>
+            </div>
+
+            <div class="profile-actions-bar">
+              <button id="btn-open-json" class="btn-ghost">Abrir profiles.json</button>
+              <button id="btn-save-profiles" class="btn-primary">Guardar Cambios de Perfiles</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

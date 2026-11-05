@@ -1,0 +1,265 @@
+/* ==========================================================================
+   OrbitMenu - Stylesheet (Corrección Centrado y Diagnóstico Visual)
+   Centrado absoluto al 50% / 50% para coincidir milimétricamente con el cursor
+   ========================================================================== */
+
+:root {
+  --bg-glass: rgba(15, 23, 42, 0.82);
+  --bg-glass-slice: rgba(30, 41, 59, 0.70);
+  --bg-glass-active: rgba(56, 189, 248, 0.38);
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-highlight: rgba(255, 255, 255, 0.35);
+  --accent-color: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.55);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --font-family: 'Segoe UI Variable Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--font-family);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor exactamente centrado en 100vw x 100vh */
+.radial-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  transform-origin: center center;
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.12s ease-out;
+  will-change: transform, opacity;
+}
+
+.radial-container.hidden {
+  opacity: 0;
+  transform: scale(0.60);
+  pointer-events: none;
+}
+
+.radial-container.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Capa SVG fija al 100% de la ventana */
+.radial-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.75));
+}
+
+.radial-backdrop {
+  fill: url(#glass-backdrop);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+}
+
+.radial-border-ring {
+  fill: none;
+  stroke: var(--border-subtle);
+  stroke-width: 1.5;
+}
+
+/* Segmentos Radiales */
+.radial-slice {
+  fill: var(--bg-glass-slice);
+  stroke: var(--border-subtle);
+  stroke-width: 1.4;
+  cursor: pointer;
+  transition: fill 0.10s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.10s ease-out;
+}
+
+.radial-slice.hovered,
+.radial-slice.active {
+  fill: var(--bg-glass-active);
+  stroke: var(--accent-color);
+  stroke-width: 2.2;
+  filter: url(#neon-glow);
+}
+
+/* Iconos de Segmentos */
+.slice-icon {
+  fill: none;
+  stroke: var(--text-main);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: stroke 0.10s ease;
+}
+
+.radial-slice.active + .slice-icon,
+.slice-icon.active {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+/* Línea Guía Magnética */
+.pointer-guide {
+  pointer-events: none;
+  transition: opacity 0.10s ease;
+}
+
+.pointer-line {
+  stroke: var(--accent-color);
+  stroke-width: 2.2;
+  stroke-dasharray: 4 3;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.pointer-dot {
+  fill: #ffffff;
+  stroke: var(--accent-color);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 10px var(--accent-color));
+}
+
+/* Zona Muerta Central (30px radio) */
+.deadzone-circle {
+  fill: rgba(15, 23, 42, 0.98);
+  cursor: pointer;
+}
+
+.deadzone-ring {
+  fill: none;
+  stroke: var(--border-subtle);
+  stroke-width: 1.5;
+  transition: stroke 0.12s ease;
+}
+
+.deadzone-ring.active-zone {
+  stroke: var(--accent-color);
+}
+
+/* Hub Central */
+.center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.96) 0%, rgba(15, 23, 42, 0.99) 100%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.center-hub.active {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 28px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.hub-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hub-state {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.10s ease-out, transform 0.10s ease-out;
+}
+
+.hub-state.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Badge del Perfil */
+.profile-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-color);
+  padding: 1px 7px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 10px;
+  max-width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Diagnóstico en tiempo real del ejecutable */
+.active-app-name {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  max-width: 92px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.action-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  max-width: 92px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.action-shortcut-pill {
+  font-size: 9.5px;
+  font-family: 'Consolas', 'Cascadia Code', monospace;
+  font-weight: 600;
+  color: #38bdf8;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  padding: 2px 6px;
+  border-radius: 5px;
+  letter-spacing: 0.04em;
+}

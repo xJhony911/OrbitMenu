@@ -1,0 +1,70 @@
+{
+  "name": "orbit-menu",
+  "version": "0.1.0",
+  "description": "Ultra-fast radial pie menu overlay for Windows triggered by middle click or customizable shortcuts",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "dist": "electron-builder --win",
+    "dist:dir": "electron-builder --dir"
+  },
+  "keywords": [
+    "pie-menu",
+    "radial-menu",
+    "electron",
+    "overlay",
+    "windows",
+    "productivity",
+    "uiohook",
+    "middle-click",
+    "glassmorphism"
+  ],
+  "author": "OrbitMenu Team",
+  "license": "MIT",
+  "dependencies": {
+    "koffi": "^2.9.3",
+    "uiohook-napi": "^1.5.4"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.orbitmenu.app",
+    "productName": "OrbitMenu",
+    "copyright": "Copyright © 2026 OrbitMenu Team",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "resources/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "OrbitMenu"
+    },
+    "files": [
+      "src/**/*",
+      "resources/**/*",
+      "package.json"
+    ]
+  }
+}

@@ -1,0 +1,784 @@
+{
+  "settings": {
+    "holdThresholdMs": 180,
+    "deadzoneRadius": 32,
+    "innerRingRadius": 140,
+    "outerRingRadius": 210,
+    "theme": "dark-glass",
+    "soundFeedback": false
+  },
+  "profiles": [
+    {
+      "id": "default",
+      "name": "Global / Escritorio",
+      "badge": "Escritorio Windows",
+      "color": "#38bdf8",
+      "gradient": ["#0284c7", "#38bdf8"],
+      "executables": [],
+      "items": [
+        {
+          "id": "clipboard_history",
+          "label": "Historial Clipboard",
+          "sublabel": "Win + V",
+          "icon": "clipboard",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "V"]
+          }
+        },
+        {
+          "id": "always_on_top",
+          "label": "Fijar Ventana",
+          "sublabel": "Always on Top",
+          "icon": "pin",
+          "action": {
+            "type": "system",
+            "systemAction": "toggle_always_on_top"
+          }
+        },
+        {
+          "id": "clean_paste",
+          "label": "Pegado Limpio",
+          "sublabel": "Sin formato",
+          "icon": "type",
+          "action": {
+            "type": "system",
+            "systemAction": "clean_paste"
+          }
+        },
+        {
+          "id": "screen_snip",
+          "label": "Recorte de Pantalla",
+          "sublabel": "Win + Shift + S",
+          "icon": "crop",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "Shift", "S"]
+          }
+        },
+        {
+          "id": "eyedropper",
+          "label": "Cuentagotas Color",
+          "sublabel": "Capturar Hex",
+          "icon": "dropper",
+          "action": {
+            "type": "system",
+            "systemAction": "eyedropper"
+          }
+        },
+        {
+          "id": "mute_volume",
+          "label": "Silenciar Volumen",
+          "sublabel": "Mute General",
+          "icon": "volume-x",
+          "action": {
+            "type": "shortcut",
+            "keys": ["AudioVolumeMute"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "browsers",
+      "name": "Navegadores Web",
+      "badge": "Navegador Web",
+      "color": "#60a5fa",
+      "gradient": ["#2563eb", "#60a5fa"],
+      "executables": [
+        "chrome.exe",
+        "msedge.exe",
+        "firefox.exe",
+        "brave.exe",
+        "opera.exe",
+        "vivaldi.exe",
+        "arc.exe"
+      ],
+      "items": [
+        {
+          "id": "restore_tab",
+          "label": "Restaurar Pestaña",
+          "sublabel": "Ctrl + Shift + T",
+          "icon": "rotate-ccw",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "T"]
+          }
+        },
+        {
+          "id": "new_tab",
+          "label": "Nueva Pestaña",
+          "sublabel": "Ctrl + T",
+          "icon": "plus-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "T"]
+          }
+        },
+        {
+          "id": "close_tab",
+          "label": "Cerrar Pestaña",
+          "sublabel": "Ctrl + W",
+          "icon": "x-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "W"]
+          }
+        },
+        {
+          "id": "find_page",
+          "label": "Buscar en Página",
+          "sublabel": "Ctrl + F",
+          "icon": "search",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "F"]
+          }
+        },
+        {
+          "id": "history",
+          "label": "Historial",
+          "sublabel": "Ctrl + H",
+          "icon": "clock",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "H"]
+          }
+        },
+        {
+          "id": "fullscreen",
+          "label": "Pantalla Completa",
+          "sublabel": "F11",
+          "icon": "maximize",
+          "action": {
+            "type": "shortcut",
+            "keys": ["F11"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "explorer",
+      "name": "Explorador de Archivos",
+      "badge": "Windows Explorer",
+      "color": "#fbbf24",
+      "gradient": ["#d97706", "#fbbf24"],
+      "executables": [
+        "explorer.exe",
+        "totalcmd.exe",
+        "directoryopus.exe"
+      ],
+      "items": [
+        {
+          "id": "new_folder",
+          "label": "Nueva Carpeta",
+          "sublabel": "Ctrl + Shift + N",
+          "icon": "folder-plus",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "N"]
+          }
+        },
+        {
+          "id": "terminal_here",
+          "label": "Abrir Terminal Aquí",
+          "sublabel": "PowerShell / WT",
+          "icon": "terminal",
+          "action": {
+            "type": "system",
+            "systemAction": "open_terminal_here"
+          }
+        },
+        {
+          "id": "copy_path",
+          "label": "Copiar Ruta",
+          "sublabel": "Ctrl + Shift + C",
+          "icon": "link",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "C"]
+          }
+        },
+        {
+          "id": "compress_zip",
+          "label": "Comprimir en ZIP",
+          "sublabel": "Archivo ZIP",
+          "icon": "archive",
+          "action": {
+            "type": "system",
+            "systemAction": "compress_zip"
+          }
+        },
+        {
+          "id": "properties",
+          "label": "Propiedades",
+          "sublabel": "Alt + Enter",
+          "icon": "info",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Alt", "Enter"]
+          }
+        },
+        {
+          "id": "toggle_preview",
+          "label": "Alternar Vista Previa",
+          "sublabel": "Alt + P",
+          "icon": "layout",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Alt", "P"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "code_editors",
+      "name": "Editores de Código",
+      "badge": "Developer IDE",
+      "color": "#38bdf8",
+      "gradient": ["#0284c7", "#38bdf8"],
+      "executables": [
+        "code.exe",
+        "devenv.exe",
+        "cursor.exe",
+        "idea64.exe",
+        "pycharm64.exe",
+        "webstorm64.exe",
+        "sublime_text.exe",
+        "notepad++.exe"
+      ],
+      "items": [
+        {
+          "id": "command_palette",
+          "label": "Paleta Comandos",
+          "sublabel": "Ctrl + Shift + P",
+          "icon": "command",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "P"]
+          }
+        },
+        {
+          "id": "integrated_terminal",
+          "label": "Terminal Integrada",
+          "sublabel": "Ctrl + `",
+          "icon": "terminal",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "`"]
+          }
+        },
+        {
+          "id": "format_code",
+          "label": "Formatear Código",
+          "sublabel": "Shift + Alt + F",
+          "icon": "code",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Shift", "Alt", "F"]
+          }
+        },
+        {
+          "id": "search_files",
+          "label": "Buscar en Archivos",
+          "sublabel": "Ctrl + Shift + F",
+          "icon": "search",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "F"]
+          }
+        },
+        {
+          "id": "toggle_comment",
+          "label": "Comentar Línea",
+          "sublabel": "Ctrl + /",
+          "icon": "message-square",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "/"]
+          }
+        },
+        {
+          "id": "split_editor",
+          "label": "Dividir Editor",
+          "sublabel": "Ctrl + \\",
+          "icon": "columns",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "\\"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "office_docs",
+      "name": "Ofimática y Documentos",
+      "badge": "Productividad Office",
+      "color": "#f87171",
+      "gradient": ["#dc2626", "#f87171"],
+      "executables": [
+        "winword.exe",
+        "excel.exe",
+        "powerpnt.exe",
+        "notion.exe",
+        "acrord32.exe",
+        "acrobat.exe",
+        "sumatrapdf.exe",
+        "onenote.exe"
+      ],
+      "items": [
+        {
+          "id": "paste_plain",
+          "label": "Pegar sin Formato",
+          "sublabel": "Ctrl + Shift + V",
+          "icon": "type",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "V"]
+          }
+        },
+        {
+          "id": "find_replace",
+          "label": "Buscar y Reemplazar",
+          "sublabel": "Ctrl + H",
+          "icon": "repeat",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "H"]
+          }
+        },
+        {
+          "id": "insert_timestamp",
+          "label": "Insertar Fecha / Hora",
+          "sublabel": "Timestamp Actual",
+          "icon": "calendar",
+          "action": {
+            "type": "system",
+            "systemAction": "insert_datetime"
+          }
+        },
+        {
+          "id": "export_print",
+          "label": "Exportar / Imprimir",
+          "sublabel": "Ctrl + P",
+          "icon": "printer",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "P"]
+          }
+        },
+        {
+          "id": "zoom_in",
+          "label": "Zoom +",
+          "sublabel": "Ctrl + Más",
+          "icon": "zoom-in",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "="]
+          }
+        },
+        {
+          "id": "zoom_out",
+          "label": "Zoom -",
+          "sublabel": "Ctrl + Menos",
+          "icon": "zoom-out",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "-"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Comunicación y Chat",
+      "badge": "Team Chat / Voice",
+      "color": "#a78bfa",
+      "gradient": ["#7c3aed", "#a78bfa"],
+      "executables": [
+        "discord.exe",
+        "zoom.exe",
+        "ms-teams.exe",
+        "teams.exe",
+        "slack.exe",
+        "telegram.exe",
+        "whatsapp.exe"
+      ],
+      "items": [
+        {
+          "id": "mute_mic",
+          "label": "Silenciar Micrófono",
+          "sublabel": "Ctrl + Shift + M",
+          "icon": "mic-off",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "M"]
+          }
+        },
+        {
+          "id": "deafen_audio",
+          "label": "Ensordecer Audio",
+          "sublabel": "Ctrl + Shift + D",
+          "icon": "headphones",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "D"]
+          }
+        },
+        {
+          "id": "share_screen",
+          "label": "Compartir Pantalla",
+          "sublabel": "Toggle Screen Share",
+          "icon": "airplay",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "S"]
+          }
+        },
+        {
+          "id": "quick_switcher",
+          "label": "Buscar Conversación",
+          "sublabel": "Ctrl + K",
+          "icon": "message-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "K"]
+          }
+        },
+        {
+          "id": "mark_read",
+          "label": "Marcar como Leído",
+          "sublabel": "Escape",
+          "icon": "check-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Escape"]
+          }
+        },
+        {
+          "id": "fast_snip",
+          "label": "Captura Rápida",
+          "sublabel": "Win + Shift + S",
+          "icon": "camera",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "Shift", "S"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "design_media",
+      "name": "Diseño y Multimedia",
+      "badge": "Design Suite",
+      "color": "#f472b6",
+      "gradient": ["#db2777", "#f472b6"],
+      "executables": [
+        "figma.exe",
+        "photoshop.exe",
+        "afterfx.exe",
+        "premiere pro.exe",
+        "premiere.exe",
+        "illustrator.exe",
+        "canva.exe",
+        "blender.exe"
+      ],
+      "items": [
+        {
+          "id": "color_dropper",
+          "label": "Cuentagotas Hex",
+          "sublabel": "Tecla I / Pipeta",
+          "icon": "dropper",
+          "action": {
+            "type": "shortcut",
+            "keys": ["I"]
+          }
+        },
+        {
+          "id": "group_selection",
+          "label": "Agrupar",
+          "sublabel": "Ctrl + G",
+          "icon": "layers",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "G"]
+          }
+        },
+        {
+          "id": "ungroup_selection",
+          "label": "Desagrupar",
+          "sublabel": "Ctrl + Shift + G",
+          "icon": "grid",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "G"]
+          }
+        },
+        {
+          "id": "quick_export",
+          "label": "Exportar Rápido",
+          "sublabel": "Ctrl + Shift + E",
+          "icon": "share",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "E"]
+          }
+        },
+        {
+          "id": "zoom_100",
+          "label": "Zoom 100%",
+          "sublabel": "Ctrl + 0",
+          "icon": "maximize-2",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "0"]
+          }
+        },
+        {
+          "id": "undo_history",
+          "label": "Deshacer",
+          "sublabel": "Ctrl + Z",
+          "icon": "rotate-ccw",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Z"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "terminals",
+      "name": "Terminales y Consolas",
+      "badge": "CLI / Shell",
+      "color": "#4ade80",
+      "gradient": ["#16a34a", "#4ade80"],
+      "executables": [
+        "windowsterminal.exe",
+        "powershell.exe",
+        "cmd.exe",
+        "mintty.exe",
+        "alacritty.exe",
+        "wezterm-gui.exe",
+        "bash.exe"
+      ],
+      "items": [
+        {
+          "id": "clear_console",
+          "label": "Limpiar Consola",
+          "sublabel": "Ctrl + L",
+          "icon": "trash-2",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "L"]
+          }
+        },
+        {
+          "id": "split_pane",
+          "label": "Dividir Panel",
+          "sublabel": "Alt + Shift + D",
+          "icon": "columns",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Alt", "Shift", "D"]
+          }
+        },
+        {
+          "id": "new_tab_term",
+          "label": "Nueva Pestaña",
+          "sublabel": "Ctrl + Shift + T",
+          "icon": "plus",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "Shift", "T"]
+          }
+        },
+        {
+          "id": "sigint_stop",
+          "label": "Detener Proceso",
+          "sublabel": "Ctrl + C (SIGINT)",
+          "icon": "stop-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "C"]
+          }
+        },
+        {
+          "id": "paste_term",
+          "label": "Pegar Clipboard",
+          "sublabel": "Ctrl + V",
+          "icon": "clipboard",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "V"]
+          }
+        },
+        {
+          "id": "reverse_search",
+          "label": "Buscar Comando",
+          "sublabel": "Ctrl + R",
+          "icon": "search",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Control", "R"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "media_players",
+      "name": "Reproductores Multimedia",
+      "badge": "Audio / Media",
+      "color": "#34d399",
+      "gradient": ["#059669", "#34d399"],
+      "executables": [
+        "spotify.exe",
+        "vlc.exe",
+        "wmplayer.exe",
+        "foobar2000.exe",
+        "musicbee.exe",
+        "itunes.exe",
+        "aimp.exe"
+      ],
+      "items": [
+        {
+          "id": "media_play_pause",
+          "label": "Play / Pausa",
+          "sublabel": "Media Key",
+          "icon": "play-circle",
+          "action": {
+            "type": "shortcut",
+            "keys": ["MediaPlayPause"]
+          }
+        },
+        {
+          "id": "media_next",
+          "label": "Siguiente Pista",
+          "sublabel": "Next Track",
+          "icon": "skip-forward",
+          "action": {
+            "type": "shortcut",
+            "keys": ["MediaNextTrack"]
+          }
+        },
+        {
+          "id": "media_prev",
+          "label": "Pista Anterior",
+          "sublabel": "Previous Track",
+          "icon": "skip-back",
+          "action": {
+            "type": "shortcut",
+            "keys": ["MediaPreviousTrack"]
+          }
+        },
+        {
+          "id": "volume_up",
+          "label": "Subir Volumen",
+          "sublabel": "Volumen +",
+          "icon": "volume-2",
+          "action": {
+            "type": "shortcut",
+            "keys": ["AudioVolumeUp"]
+          }
+        },
+        {
+          "id": "volume_down",
+          "label": "Bajar Volumen",
+          "sublabel": "Volumen -",
+          "icon": "volume-1",
+          "action": {
+            "type": "shortcut",
+            "keys": ["AudioVolumeDown"]
+          }
+        },
+        {
+          "id": "media_mute",
+          "label": "Silenciar",
+          "sublabel": "Mute",
+          "icon": "volume-x",
+          "action": {
+            "type": "shortcut",
+            "keys": ["AudioVolumeMute"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gaming",
+      "name": "Juegos y Pantalla Completa",
+      "badge": "Gaming Overlay",
+      "color": "#ef4444",
+      "gradient": ["#b91c1c", "#ef4444"],
+      "executables": [
+        "steam.exe",
+        "epicgameslauncher.exe",
+        "riotclientservices.exe",
+        "leagueclient.exe",
+        "valorant.exe",
+        "cs2.exe",
+        "dota2.exe",
+        "battle.net.exe"
+      ],
+      "items": [
+        {
+          "id": "game_screenshot",
+          "label": "Captura Pantalla",
+          "sublabel": "F12 (Steam)",
+          "icon": "camera",
+          "action": {
+            "type": "shortcut",
+            "keys": ["F12"]
+          }
+        },
+        {
+          "id": "record_clip",
+          "label": "Grabar Clip",
+          "sublabel": "Win + Alt + G",
+          "icon": "video",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "Alt", "G"]
+          }
+        },
+        {
+          "id": "game_bar",
+          "label": "Barra Rendimiento",
+          "sublabel": "Win + G (Xbox Bar)",
+          "icon": "activity",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "G"]
+          }
+        },
+        {
+          "id": "game_mute",
+          "label": "Silenciar Audio",
+          "sublabel": "Mute Inmediato",
+          "icon": "volume-x",
+          "action": {
+            "type": "shortcut",
+            "keys": ["AudioVolumeMute"]
+          }
+        },
+        {
+          "id": "game_next_music",
+          "label": "Siguiente Canción",
+          "sublabel": "Media Next Track",
+          "icon": "skip-forward",
+          "action": {
+            "type": "shortcut",
+            "keys": ["MediaNextTrack"]
+          }
+        },
+        {
+          "id": "minimize_desktop",
+          "label": "Mostrar Escritorio",
+          "sublabel": "Win + D",
+          "icon": "monitor",
+          "action": {
+            "type": "shortcut",
+            "keys": ["Meta", "D"]
+          }
+        }
+      ]
+    }
+  ]
+}
